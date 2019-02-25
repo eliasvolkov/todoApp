@@ -5,7 +5,7 @@ const form = document.querySelector('#task-form'),
       clearBtn = document.querySelector('.clear-tasks');
 
 (function init () {
-    document.addEventListener('submit', addTask);
+    form.addEventListener('submit', addTask);
 
 
     function addTask (e) {
