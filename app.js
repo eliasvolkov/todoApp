@@ -7,6 +7,7 @@ const form = document.querySelector('#task-form'),
 (function init () {
     form.addEventListener('submit', addTask);
     taskList.addEventListener('click', removeTask);
+    filter.addEventListener('keyup', filterTask);
 
 
     function addTask (e) {
@@ -20,6 +21,8 @@ const form = document.querySelector('#task-form'),
 
         li.appendChild(linkRemove);
         taskList.appendChild(li);
+
+        taskInput.value = '';
         
         e.preventDefault();
     }
@@ -28,7 +31,17 @@ const form = document.querySelector('#task-form'),
             e.target.parentElement.parentElement.remove();
         }
     }
-
+    function filterTask (e) {
+        const text = e.target.value.toLowerCase();
+        document.querySelectorAll(".collection-item").forEach(function(task) {
+            const item = task.firstChild.textContent;
+                if (item.toLowerCase().indexOf(text) != -1) {
+                    task.style.display = "block";
+                } else {
+                    task.style.display = "none";
+                }
+  });
+    }
 
 
 
