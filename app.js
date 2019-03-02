@@ -6,6 +6,7 @@ const form = document.querySelector('#task-form'),
 
 (function init () {
     form.addEventListener('submit', addTask);
+    taskList.addEventListener('click', removeTask);
 
 
     function addTask (e) {
@@ -22,7 +23,11 @@ const form = document.querySelector('#task-form'),
         
         e.preventDefault();
     }
-
+    function removeTask (e) {
+        if(e.target.parentElement.classList.contains('delete-item')){
+            e.target.parentElement.parentElement.remove();
+        }
+    }
 
 
 
