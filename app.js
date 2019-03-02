@@ -8,6 +8,7 @@ const form = document.querySelector('#task-form'),
     form.addEventListener('submit', addTask);
     taskList.addEventListener('click', removeTask);
     filter.addEventListener('keyup', filterTask);
+    clearBtn.addEventListener('click', removeAll);
 
 
     function addTask (e) {
@@ -42,7 +43,9 @@ const form = document.querySelector('#task-form'),
                 }
   });
     }
-
+    function removeAll (e) {
+        taskList.innerHTML = '';
+    }
 
 
 
